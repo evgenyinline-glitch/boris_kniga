@@ -1,0 +1,497 @@
+/* ============================================================
+   Премиальная HTML5-книга — оформление
+   ============================================================ */
+
+:root{
+  --ink:#e9e3d8;
+  --ink-dim:#a89e8f;
+  --bg-0:#0d0b0a;
+  --bg-1:#191512;
+  --bg-2:#241e19;
+  --accent:#c9a227;
+  --page-ratio:0.64974;     /* 870 / 1339 — формат страниц книги */
+  --shadow-soft:0 40px 90px -20px rgba(0,0,0,.85);
+}
+
+*{ box-sizing:border-box; }
+
+html,body{
+  height:100%;
+  margin:0;
+  background:var(--bg-0);
+  color:var(--ink);
+  font-family:"Georgia","Iowan Old Style","Times New Roman",serif;
+  -webkit-font-smoothing:antialiased;
+  overflow:hidden;
+  overscroll-behavior:none;
+  touch-action:manipulation;
+}
+
+body{
+  display:flex;
+  flex-direction:column;
+  min-height:100dvh;
+  background:
+    radial-gradient(120% 90% at 50% -10%, #2a231d 0%, #171310 45%, #0b0a09 100%);
+}
+
+/* Фотофон «позади книги» — с затемнением и виньеткой */
+.bg-photo{
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:
+    url("assets/bg.webp") center/cover no-repeat,
+    var(--bg-0);
+  filter:brightness(.44) saturate(.82) contrast(1.03);
+}
+.bg-photo::after{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    radial-gradient(130% 95% at 50% 44%, rgba(0,0,0,0) 32%, rgba(6,5,4,.78) 100%),
+    linear-gradient(180deg, rgba(8,7,6,.62) 0%, rgba(8,7,6,.34) 42%, rgba(8,7,6,.70) 100%);
+}
+
+/* Мягкая «бумажная» зернистость фона */
+.bg-grain{
+  position:fixed; inset:0; pointer-events:none; z-index:1; opacity:.35;
+  background-image:url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'>\
+<filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/>\
+<feColorMatrix type='saturate' values='0'/></filter>\
+<rect width='160' height='160' filter='url(%23n)' opacity='.28'/></svg>");
+  mix-blend-mode:overlay;
+}
+
+/* ---------- Верхняя панель ---------- */
+.topbar{
+  position:relative; z-index:5;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:16px;
+  padding:max(12px, env(safe-area-inset-top)) clamp(14px,4vw,42px) 6px;
+  flex:0 0 auto;
+}
+
+.brand{
+  font-size:clamp(12px,1.5vw,15px);
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--ink-dim);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.tools{ display:flex; gap:8px; }
+
+.tool{
+  width:36px; height:36px;
+  display:grid; place-items:center;
+  border:1px solid rgba(233,227,216,.16);
+  border-radius:50%;
+  background:rgba(255,255,255,.03);
+  color:var(--ink-dim);
+  cursor:pointer;
+  transition:color .25s, border-color .25s, background .25s, transform .2s;
+  -webkit-tap-highlight-color:transparent;
+}
+.tool:hover{ color:var(--ink); border-color:rgba(201,162,39,.55); background:rgba(201,162,39,.10); }
+.tool:active{ transform:scale(.94); }
+.tool[aria-pressed="false"] .wave{ opacity:.15; }
+
+/* Кнопка с подписью («Содержание»).
+   Двойной класс (.tool.tool--wide) — иначе .tool{width:32px} из
+   медиазапроса перебивает width:auto и текст наезжает на соседей. */
+.tool.tool--wide{
+  width:auto;
+  flex:0 0 auto;
+  padding:0 14px;
+  gap:9px;
+  display:flex; align-items:center;
+  white-space:nowrap;
+  border-radius:999px;
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  font-size:12px; letter-spacing:.08em; text-transform:uppercase;
+}
+@media (max-width:640px){
+  .tool.tool--wide{ width:auto; padding:0 10px; font-size:10px; gap:5px; letter-spacing:.06em; }
+}
+
+/* ---------- Сцена ---------- */
+.stage{
+  position:relative;
+  flex:1 1 auto;
+  display:grid;
+  place-items:center;
+  padding:clamp(6px,1.5vw,18px) clamp(8px,3vw,48px) 0;
+  min-height:0;
+  z-index:2;
+}
+
+/* Тень «под книгой», лежит отдельно от самого флипбука */
+.book-shadow{
+  position:absolute;
+  width:min(74vw, 1000px);
+  height:min(9vh, 70px);
+  bottom:clamp(2px,4vh,44px);
+  border-radius:50%;
+  background:radial-gradient(closest-side, rgba(0,0,0,.78), rgba(0,0,0,0) 72%);
+  filter:blur(6px);
+  pointer-events:none;
+  transition:width .35s ease, opacity .35s ease;
+}
+
+.flipbook{
+  position:relative;
+}
+
+/* Обёртка: книга + зоны клика по краям.
+   Точную ширину задаёт JS (fitBook) — иначе разворот не поместится по высоте. */
+.book-wrap{
+  position:relative;
+  display:block;
+  line-height:0;
+  max-width:100%;
+  -webkit-user-select:none; user-select:none;
+  -webkit-user-drag:none;
+  will-change:width;
+}
+
+/* StPageFlip: корневой контейнер.
+   Подложка ПЛОТНАЯ (непрозрачная): там, где разворот неполный (обложка)
+   или в момент перелистывания видна она — книга никогда не выглядит
+   прозрачной; фотофон сайта виден только ПОЗАДИ блока книги. */
+.stf__parent{
+  margin:0 auto;
+  border-radius:2px;
+  overflow:hidden;            /* обрезаем тень страниц по краю блока */
+  background:
+    linear-gradient(155deg, rgba(255,255,255,.045) 0%, rgba(255,255,255,0) 38%),
+    linear-gradient(180deg, #241e18 0%, #1a1511 52%, #0f0d0b 100%);
+  /* Без контуров: только мягкая тень-«парад» под блоком книги */
+  box-shadow:0 30px 70px -18px rgba(0,0,0,.9);
+}
+
+/* Корешок — тонкая тёмная линия по центру разворота */
+.stf__parent::after{
+  content:"";
+  position:absolute;
+  top:0; bottom:0; left:50%;
+  width:26px;
+  transform:translateX(-50%);
+  pointer-events:none;
+  z-index:9;
+  background:linear-gradient(90deg,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,.16) 38%,
+      rgba(0,0,0,.30) 50%,
+      rgba(0,0,0,.16) 62%,
+      rgba(0,0,0,0) 100%);
+  opacity:1;
+  transition:opacity .3s;
+}
+/* Корешок гаснет в портретном режиме (одна страница) — класс ставит JS */
+.stf__parent.is-portrait::after,
+.flipbook.is-portrait::after{ opacity:0; }
+
+/* Сами страницы */
+.page{
+  background:#fff;
+  overflow:hidden;
+  -webkit-user-select:none; user-select:none;
+}
+
+.page .page-content{
+  width:100%; height:100%;
+  background:#fff center/cover no-repeat;
+  position:relative;
+}
+
+/* Лёгкая текстура бумаги и внутренняя тень у корешка —
+   у правой страницы корешок слева, у левой — справа */
+.page .page-content::before{
+  content:"";
+  position:absolute; inset:0;
+  pointer-events:none;
+  opacity:.75;
+}
+.page.--right .page-content::before{
+  background:linear-gradient(90deg, rgba(0,0,0,.16) 0, rgba(0,0,0,.05) 12px, rgba(0,0,0,0) 42px);
+}
+.page.--left .page-content::before{
+  background:linear-gradient(270deg, rgba(0,0,0,.16) 0, rgba(0,0,0,.05) 12px, rgba(0,0,0,0) 42px);
+}
+
+/* Твёрдая обложка: чуть темнее бумага + кант */
+.page.--hard .page-content{
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.10);
+}
+
+/* Зоны-«стрелки» у краёв. Строго pointer-events:none:
+   клик/свайп обрабатывает JS на .book-wrap, поэтому StPageFlip
+   получает pointerdown даже от самого края страницы. */
+.click-zone{
+  position:absolute; top:0; bottom:0; width:13%;
+  z-index:8;
+  pointer-events:none;
+  -webkit-tap-highlight-color:transparent;
+}
+.click-zone.off{ opacity:0; visibility:hidden; }
+.click-zone.prev{ left:0; }
+.click-zone.next{ right:0; }
+.click-zone::after{
+  content:"";
+  position:absolute; top:50%; width:26px; height:26px;
+  margin-top:-13px;
+  border-right:2px solid rgba(255,255,255,.9);
+  border-bottom:2px solid rgba(255,255,255,.9);
+  opacity:0;
+  transition:opacity .3s;
+  filter:drop-shadow(0 1px 3px rgba(0,0,0,.6));
+}
+.click-zone.prev::after{ left:26px; transform:rotate(135deg); }
+.click-zone.next::after{ right:26px; transform:rotate(-45deg); }
+.stage:hover .click-zone::after{ opacity:.75; }
+@media (hover:none){ .click-zone::after{ display:none; } }
+
+/* ---------- Нижняя навигация ---------- */
+.controls{
+  position:relative; z-index:5;
+  flex:0 0 auto;
+  display:flex; align-items:center; justify-content:center;
+  gap:clamp(16px,4vw,28px);
+  padding:clamp(8px,1.6vh,16px) 16px max(10px, env(safe-area-inset-bottom));
+}
+
+.nav{
+  width:44px; height:44px;
+  display:grid; place-items:center;
+  border-radius:50%;
+  border:1px solid rgba(233,227,216,.16);
+  background:rgba(255,255,255,.03);
+  color:var(--ink);
+  cursor:pointer;
+  transition:background .25s, border-color .25s, transform .2s, opacity .25s;
+  -webkit-tap-highlight-color:transparent;
+}
+.nav:hover{ background:rgba(201,162,39,.14); border-color:rgba(201,162,39,.6); }
+.nav:active{ transform:scale(.93); }
+.nav:disabled{ opacity:.28; cursor:default; transform:none; }
+
+.counter{
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  font-size:13px;
+  letter-spacing:.12em;
+  color:var(--ink-dim);
+  min-width:92px;
+  text-align:center;
+  font-variant-numeric:tabular-nums;
+}
+.counter b{ color:var(--ink); font-weight:600; }
+.slash{ opacity:.4; margin:0 2px; }
+
+/* ---------- Подсказка ---------- */
+.hint{
+  position:fixed;
+  left:50%; bottom:calc(78px + env(safe-area-inset-bottom));
+  transform:translateX(-50%);
+  padding:9px 16px;
+  border-radius:999px;
+  background:rgba(20,17,14,.86);
+  border:1px solid rgba(233,227,216,.14);
+  color:var(--ink-dim);
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  font-size:12px; letter-spacing:.04em;
+  white-space:nowrap;
+  z-index:20;
+  opacity:0; pointer-events:none;
+  transition:opacity .5s ease;
+  backdrop-filter:blur(6px);
+}
+.hint.show{ opacity:1; }
+
+/* ---------- Прелоадер ---------- */
+.loader{
+  position:fixed; inset:0; z-index:100;
+  display:grid; place-items:center;
+  background:radial-gradient(120% 90% at 50% 0%, #211b16, #0a0908 70%);
+  transition:opacity .7s ease, visibility .7s;
+}
+.loader.hide{ opacity:0; visibility:hidden; }
+
+.loader-inner{ text-align:center; width:min(78vw,340px); }
+.loader-title{
+  font-size:clamp(20px,4vw,28px);
+  letter-spacing:.04em;
+  color:var(--ink);
+  margin-bottom:8px;
+}
+.loader-sub{
+  font-size:12px; letter-spacing:.26em; text-transform:uppercase;
+  color:var(--ink-dim); margin-bottom:26px;
+}
+.bar{
+  height:2px; width:100%;
+  background:rgba(255,255,255,.1);
+  border-radius:2px; overflow:hidden;
+}
+.bar i{
+  display:block; height:100%; width:0%;
+  background:linear-gradient(90deg,#8a6f1d,var(--accent),#f0d67a);
+  transition:width .25s ease;
+}
+.loader-note{
+  margin-top:14px;
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+  color:rgba(168,158,143,.75);
+}
+
+.noscript{
+  position:fixed; inset:0; display:grid; place-items:center;
+  background:#0b0a09; color:#e9e3d8; z-index:200; text-align:center; padding:24px;
+}
+
+/* Курсор-«пальчик», когда указатель у края разворота */
+.book-wrap.hot{ cursor:pointer; }
+.page, .page *{ -webkit-user-drag:none; }
+
+/* ---------- Меню «Содержание» ---------- */
+.toc-backdrop{
+  position:fixed; inset:0; z-index:60;
+  background:rgba(6,5,4,.55);
+  backdrop-filter:blur(3px);
+  opacity:0; transition:opacity .3s ease;
+}
+.toc-backdrop.open{ opacity:1; }
+
+.toc{
+  position:fixed; z-index:61;
+  top:0; right:0; bottom:0;
+  width:min(430px, 94vw);
+  display:flex; flex-direction:column;
+  background:linear-gradient(180deg, #191411 0%, #12100e 100%);
+  border-left:1px solid rgba(201,162,39,.30);
+  box-shadow:-30px 0 70px -25px rgba(0,0,0,.9);
+  transform:translateX(102%);
+  transition:transform .38s cubic-bezier(.22,.61,.36,1);
+}
+.toc.open{ transform:none; }
+.toc[hidden], .toc-backdrop[hidden]{ display:none; }
+
+.toc-head{
+  flex:0 0 auto;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px 20px 14px;
+  border-bottom:1px solid rgba(233,227,216,.10);
+}
+.toc-title{
+  font-size:13px; letter-spacing:.26em; text-transform:uppercase;
+  color:var(--accent);
+}
+.toc-close{
+  width:34px; height:34px; border-radius:50%;
+  border:1px solid rgba(233,227,216,.16);
+  background:transparent; color:var(--ink-dim);
+  font-size:20px; line-height:1; cursor:pointer;
+  transition:color .2s, border-color .2s, background .2s;
+}
+.toc-close:hover{ color:var(--ink); border-color:rgba(201,162,39,.55); background:rgba(201,162,39,.10); }
+
+.toc-list{
+  flex:1 1 auto;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  padding:10px 0 26px;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(201,162,39,.45) transparent;
+}
+.toc-list::-webkit-scrollbar{ width:8px; }
+.toc-list::-webkit-scrollbar-thumb{ background:rgba(201,162,39,.35); border-radius:4px; }
+
+.toc-group{
+  padding:16px 22px 6px;
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  font-size:10.5px; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--accent);
+}
+.toc-group .toc-sub{
+  display:block; margin-top:3px;
+  font-size:10px; letter-spacing:.1em; text-transform:none;
+  color:rgba(168,158,143,.75);
+}
+
+.toc-item{
+  display:flex; align-items:baseline; gap:10px;
+  width:100%;
+  padding:8px 22px;
+  border:0; background:transparent;
+  color:var(--ink);
+  font-family:"Georgia","Times New Roman",serif;
+  font-size:14.5px; line-height:1.35;
+  text-align:left; cursor:pointer;
+  transition:background .18s, color .18s;
+}
+.toc-item:hover{ background:rgba(201,162,39,.10); }
+.toc-item .ti-dots{
+  flex:1 1 auto;
+  border-bottom:1px dotted rgba(233,227,216,.28);
+  transform:translateY(-4px);
+  min-width:14px;
+}
+.toc-item .ti-num{
+  flex:0 0 auto;
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  font-size:12px; color:var(--ink-dim);
+  font-variant-numeric:tabular-nums;
+}
+.toc-item.is-current{
+  background:rgba(201,162,39,.16);
+  color:#f2e6c4;
+}
+.toc-item.is-current .ti-num{ color:var(--accent); }
+
+@media (max-width:640px){
+  .toc{
+    top:auto; left:0; right:0; bottom:0;
+    width:100%; max-height:78dvh;
+    border-left:0; border-top:1px solid rgba(201,162,39,.3);
+    border-radius:14px 14px 0 0;
+    transform:translateY(102%);
+  }
+  .toc.open{ transform:none; }
+}
+
+/* ---------- «Магнит»: удержание уголка страницы ---------- */
+.hold-ring{
+  position:absolute; z-index:9;
+  width:46px; height:46px;
+  margin:-23px 0 0 -23px;
+  border-radius:50%;
+  pointer-events:none;
+  opacity:0;
+  background:radial-gradient(closest-side, rgba(201,162,39,.55), rgba(201,162,39,0) 72%);
+  transition:opacity .25s ease;
+}
+.hold-ring.show{ opacity:1; animation:holdPulse 1.15s ease-in-out infinite; }
+.hold-ring.go{ animation:holdGo .5s ease-out forwards; }
+@keyframes holdPulse{
+  0%,100%{ transform:scale(.72); opacity:.55; }
+  50%{ transform:scale(1); opacity:1; }
+}
+@keyframes holdGo{
+  to{ transform:scale(2.6); opacity:0; }
+}
+
+/* ---------- Адаптив ---------- */
+@media (max-width:640px){
+  .brand{ font-size:11px; letter-spacing:.16em; }
+  .tool{ width:32px; height:32px; }
+  .hint{ font-size:11px; padding:8px 13px; max-width:88vw; white-space:normal; text-align:center; }
+  .stage{ padding-left:6px; padding-right:6px; }
+  .stf__parent{ box-shadow:0 18px 44px -14px rgba(0,0,0,.9); }
+}
+
+/* Уважаем системную настройку «меньше движения» */
+@media (prefers-reduced-motion:reduce){
+  *{ transition-duration:.01ms !important; animation-duration:.01ms !important; }
+}

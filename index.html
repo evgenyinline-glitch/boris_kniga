@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d0b0a">
+<title>Его Высочество Юмор — Борис Шварцман | Интерактивная книга</title>
+<meta name="description" content="Интерактивная HTML5-книга Бориса Шварцмана «Его Высочество Юмор» с реалистичным перелистыванием страниц.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ---------- Фон: затемнённое фото «позади книги» ---------- -->
+<div class="bg-photo" aria-hidden="true"></div>
+<div class="bg-grain" aria-hidden="true"></div>
+
+<!-- ---------- Верхняя панель ---------- -->
+<header class="topbar">
+  <div class="brand">Борис Шварцман · Его Высочество Юмор</div>
+
+  <div class="tools">
+    <button class="tool tool--wide" id="tocBtn" type="button" aria-expanded="false"
+            aria-controls="tocPanel" aria-label="Содержание" title="Содержание">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none"
+           stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M8 6.5h12M8 12h12M8 17.5h12M4 6.5h.01M4 12h.01M4 17.5h.01"/>
+      </svg>
+      <span>Содержание</span>
+    </button>
+
+    <button class="tool" id="soundBtn" type="button" aria-pressed="true"
+            aria-label="Звук перелистывания" title="Звук перелистывания">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none"
+           stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 9.5h3.2L12 5.5v13l-4.8-4H4z"/>
+        <path class="wave" d="M15.6 9.2a4 4 0 0 1 0 5.6"/>
+        <path class="wave" d="M18.2 6.8a7.6 7.6 0 0 1 0 10.4"/>
+      </svg>
+    </button>
+
+    <button class="tool" id="fsBtn" type="button" aria-pressed="false"
+            aria-label="Во весь экран" title="Во весь экран">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none"
+           stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<!-- ---------- Сцена с книгой ---------- -->
+<main class="stage" id="stage">
+  <div class="book-shadow" id="bookShadow" aria-hidden="true"></div>
+
+  <div class="book-wrap" id="bookWrap">
+    <!-- Сюда страницы подключит StPageFlip -->
+    <div id="flipbook" class="flipbook"></div>
+
+    <!-- Декоративные «стрелки» у краёв (клик обрабатывает JS) -->
+    <div class="click-zone prev" id="zonePrev" aria-hidden="true"></div>
+    <div class="click-zone next" id="zoneNext" aria-hidden="true"></div>
+  </div>
+</main>
+
+<!-- ---------- Нижняя навигация ---------- -->
+<footer class="controls">
+  <button class="nav" id="prevBtn" type="button" aria-label="Предыдущая страница">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+         stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M15 5l-7 7 7 7"/>
+    </svg>
+  </button>
+
+  <div class="counter" id="counter" role="status" aria-live="polite">— / —</div>
+
+  <button class="nav" id="nextBtn" type="button" aria-label="Следующая страница">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+         stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M9 5l7 7-7 7"/>
+    </svg>
+  </button>
+</footer>
+
+<!-- ---------- Меню «Содержание» ---------- -->
+<div class="toc-backdrop" id="tocBackdrop" hidden></div>
+
+<nav class="toc" id="tocPanel" aria-label="Содержание книги" hidden>
+  <div class="toc-head">
+    <span class="toc-title">Содержание</span>
+    <button class="toc-close" id="tocClose" type="button" aria-label="Закрыть содержание">×</button>
+  </div>
+  <div class="toc-list" id="tocList"></div>
+</nav>
+
+<!-- ---------- Подсказка ---------- -->
+<div class="hint" id="hint">
+  Листайте: свайп или перетаскивание, клик по краю страницы, стрелки&nbsp;←&nbsp;→
+</div>
+
+<!-- ---------- Прелоадер ---------- -->
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <div class="loader-title">Его Высочество Юмор</div>
+    <div class="loader-sub">Борис Шварцман</div>
+    <div class="bar"><i id="loadBar"></i></div>
+    <div class="loader-note" id="loadNote">Загрузка страниц…</div>
+  </div>
+</div>
+
+<noscript>
+  <div class="noscript">
+    Для просмотра интерактивной книги требуется включённый JavaScript.
+  </div>
+</noscript>
+
+<script src="vendor/page-flip.browser.js"></script>
+<script src="assets/pages/toc.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
