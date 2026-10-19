@@ -1,0 +1,1001 @@
+{
+  "total": 248,
+  "width": 870,
+  "height": 1339,
+  "aspect": 0.64974,
+  "totalMB": 20.4,
+  "pages": [
+    {
+      "src": "assets/pages/page-1.webp",
+      "bytes": 53480
+    },
+    {
+      "src": "assets/pages/page-2.webp",
+      "bytes": 50948
+    },
+    {
+      "src": "assets/pages/page-3.webp",
+      "bytes": 39798
+    },
+    {
+      "src": "assets/pages/page-4.webp",
+      "bytes": 2164
+    },
+    {
+      "src": "assets/pages/page-5.webp",
+      "bytes": 61678
+    },
+    {
+      "src": "assets/pages/page-6.webp",
+      "bytes": 14032
+    },
+    {
+      "src": "assets/pages/page-7.webp",
+      "bytes": 72492
+    },
+    {
+      "src": "assets/pages/page-8.webp",
+      "bytes": 111322
+    },
+    {
+      "src": "assets/pages/page-9.webp",
+      "bytes": 43738
+    },
+    {
+      "src": "assets/pages/page-10.webp",
+      "bytes": 69226
+    },
+    {
+      "src": "assets/pages/page-11.webp",
+      "bytes": 91550
+    },
+    {
+      "src": "assets/pages/page-12.webp",
+      "bytes": 135110
+    },
+    {
+      "src": "assets/pages/page-13.webp",
+      "bytes": 123976
+    },
+    {
+      "src": "assets/pages/page-14.webp",
+      "bytes": 52092
+    },
+    {
+      "src": "assets/pages/page-15.webp",
+      "bytes": 59574
+    },
+    {
+      "src": "assets/pages/page-16.webp",
+      "bytes": 85332
+    },
+    {
+      "src": "assets/pages/page-17.webp",
+      "bytes": 88922
+    },
+    {
+      "src": "assets/pages/page-18.webp",
+      "bytes": 114704
+    },
+    {
+      "src": "assets/pages/page-19.webp",
+      "bytes": 103276
+    },
+    {
+      "src": "assets/pages/page-20.webp",
+      "bytes": 90640
+    },
+    {
+      "src": "assets/pages/page-21.webp",
+      "bytes": 68004
+    },
+    {
+      "src": "assets/pages/page-22.webp",
+      "bytes": 96064
+    },
+    {
+      "src": "assets/pages/page-23.webp",
+      "bytes": 96560
+    },
+    {
+      "src": "assets/pages/page-24.webp",
+      "bytes": 95966
+    },
+    {
+      "src": "assets/pages/page-25.webp",
+      "bytes": 116326
+    },
+    {
+      "src": "assets/pages/page-26.webp",
+      "bytes": 84678
+    },
+    {
+      "src": "assets/pages/page-27.webp",
+      "bytes": 88546
+    },
+    {
+      "src": "assets/pages/page-28.webp",
+      "bytes": 107044
+    },
+    {
+      "src": "assets/pages/page-29.webp",
+      "bytes": 103528
+    },
+    {
+      "src": "assets/pages/page-30.webp",
+      "bytes": 102448
+    },
+    {
+      "src": "assets/pages/page-31.webp",
+      "bytes": 97554
+    },
+    {
+      "src": "assets/pages/page-32.webp",
+      "bytes": 83504
+    },
+    {
+      "src": "assets/pages/page-33.webp",
+      "bytes": 102152
+    },
+    {
+      "src": "assets/pages/page-34.webp",
+      "bytes": 104538
+    },
+    {
+      "src": "assets/pages/page-35.webp",
+      "bytes": 96830
+    },
+    {
+      "src": "assets/pages/page-36.webp",
+      "bytes": 96914
+    },
+    {
+      "src": "assets/pages/page-37.webp",
+      "bytes": 76952
+    },
+    {
+      "src": "assets/pages/page-38.webp",
+      "bytes": 55034
+    },
+    {
+      "src": "assets/pages/page-39.webp",
+      "bytes": 82326
+    },
+    {
+      "src": "assets/pages/page-40.webp",
+      "bytes": 102058
+    },
+    {
+      "src": "assets/pages/page-41.webp",
+      "bytes": 93558
+    },
+    {
+      "src": "assets/pages/page-42.webp",
+      "bytes": 116704
+    },
+    {
+      "src": "assets/pages/page-43.webp",
+      "bytes": 88998
+    },
+    {
+      "src": "assets/pages/page-44.webp",
+      "bytes": 99852
+    },
+    {
+      "src": "assets/pages/page-45.webp",
+      "bytes": 94958
+    },
+    {
+      "src": "assets/pages/page-46.webp",
+      "bytes": 84280
+    },
+    {
+      "src": "assets/pages/page-47.webp",
+      "bytes": 94720
+    },
+    {
+      "src": "assets/pages/page-48.webp",
+      "bytes": 94236
+    },
+    {
+      "src": "assets/pages/page-49.webp",
+      "bytes": 113268
+    },
+    {
+      "src": "assets/pages/page-50.webp",
+      "bytes": 105984
+    },
+    {
+      "src": "assets/pages/page-51.webp",
+      "bytes": 106016
+    },
+    {
+      "src": "assets/pages/page-52.webp",
+      "bytes": 64566
+    },
+    {
+      "src": "assets/pages/page-53.webp",
+      "bytes": 81534
+    },
+    {
+      "src": "assets/pages/page-54.webp",
+      "bytes": 94306
+    },
+    {
+      "src": "assets/pages/page-55.webp",
+      "bytes": 82052
+    },
+    {
+      "src": "assets/pages/page-56.webp",
+      "bytes": 61626
+    },
+    {
+      "src": "assets/pages/page-57.webp",
+      "bytes": 75126
+    },
+    {
+      "src": "assets/pages/page-58.webp",
+      "bytes": 96626
+    },
+    {
+      "src": "assets/pages/page-59.webp",
+      "bytes": 106370
+    },
+    {
+      "src": "assets/pages/page-60.webp",
+      "bytes": 88878
+    },
+    {
+      "src": "assets/pages/page-61.webp",
+      "bytes": 93302
+    },
+    {
+      "src": "assets/pages/page-62.webp",
+      "bytes": 103092
+    },
+    {
+      "src": "assets/pages/page-63.webp",
+      "bytes": 89916
+    },
+    {
+      "src": "assets/pages/page-64.webp",
+      "bytes": 84150
+    },
+    {
+      "src": "assets/pages/page-65.webp",
+      "bytes": 96146
+    },
+    {
+      "src": "assets/pages/page-66.webp",
+      "bytes": 94846
+    },
+    {
+      "src": "assets/pages/page-67.webp",
+      "bytes": 86258
+    },
+    {
+      "src": "assets/pages/page-68.webp",
+      "bytes": 39120
+    },
+    {
+      "src": "assets/pages/page-69.webp",
+      "bytes": 86170
+    },
+    {
+      "src": "assets/pages/page-70.webp",
+      "bytes": 84282
+    },
+    {
+      "src": "assets/pages/page-71.webp",
+      "bytes": 57720
+    },
+    {
+      "src": "assets/pages/page-72.webp",
+      "bytes": 86824
+    },
+    {
+      "src": "assets/pages/page-73.webp",
+      "bytes": 112134
+    },
+    {
+      "src": "assets/pages/page-74.webp",
+      "bytes": 95034
+    },
+    {
+      "src": "assets/pages/page-75.webp",
+      "bytes": 91362
+    },
+    {
+      "src": "assets/pages/page-76.webp",
+      "bytes": 96088
+    },
+    {
+      "src": "assets/pages/page-77.webp",
+      "bytes": 94776
+    },
+    {
+      "src": "assets/pages/page-78.webp",
+      "bytes": 42196
+    },
+    {
+      "src": "assets/pages/page-79.webp",
+      "bytes": 118912
+    },
+    {
+      "src": "assets/pages/page-80.webp",
+      "bytes": 102106
+    },
+    {
+      "src": "assets/pages/page-81.webp",
+      "bytes": 96956
+    },
+    {
+      "src": "assets/pages/page-82.webp",
+      "bytes": 110778
+    },
+    {
+      "src": "assets/pages/page-83.webp",
+      "bytes": 91270
+    },
+    {
+      "src": "assets/pages/page-84.webp",
+      "bytes": 92582
+    },
+    {
+      "src": "assets/pages/page-85.webp",
+      "bytes": 68820
+    },
+    {
+      "src": "assets/pages/page-86.webp",
+      "bytes": 110134
+    },
+    {
+      "src": "assets/pages/page-87.webp",
+      "bytes": 108060
+    },
+    {
+      "src": "assets/pages/page-88.webp",
+      "bytes": 93206
+    },
+    {
+      "src": "assets/pages/page-89.webp",
+      "bytes": 98048
+    },
+    {
+      "src": "assets/pages/page-90.webp",
+      "bytes": 91600
+    },
+    {
+      "src": "assets/pages/page-91.webp",
+      "bytes": 94996
+    },
+    {
+      "src": "assets/pages/page-92.webp",
+      "bytes": 107126
+    },
+    {
+      "src": "assets/pages/page-93.webp",
+      "bytes": 94188
+    },
+    {
+      "src": "assets/pages/page-94.webp",
+      "bytes": 52364
+    },
+    {
+      "src": "assets/pages/page-95.webp",
+      "bytes": 88052
+    },
+    {
+      "src": "assets/pages/page-96.webp",
+      "bytes": 105838
+    },
+    {
+      "src": "assets/pages/page-97.webp",
+      "bytes": 106938
+    },
+    {
+      "src": "assets/pages/page-98.webp",
+      "bytes": 78738
+    },
+    {
+      "src": "assets/pages/page-99.webp",
+      "bytes": 101950
+    },
+    {
+      "src": "assets/pages/page-100.webp",
+      "bytes": 99348
+    },
+    {
+      "src": "assets/pages/page-101.webp",
+      "bytes": 98806
+    },
+    {
+      "src": "assets/pages/page-102.webp",
+      "bytes": 105202
+    },
+    {
+      "src": "assets/pages/page-103.webp",
+      "bytes": 69974
+    },
+    {
+      "src": "assets/pages/page-104.webp",
+      "bytes": 103392
+    },
+    {
+      "src": "assets/pages/page-105.webp",
+      "bytes": 91222
+    },
+    {
+      "src": "assets/pages/page-106.webp",
+      "bytes": 97616
+    },
+    {
+      "src": "assets/pages/page-107.webp",
+      "bytes": 63814
+    },
+    {
+      "src": "assets/pages/page-108.webp",
+      "bytes": 83792
+    },
+    {
+      "src": "assets/pages/page-109.webp",
+      "bytes": 95096
+    },
+    {
+      "src": "assets/pages/page-110.webp",
+      "bytes": 93174
+    },
+    {
+      "src": "assets/pages/page-111.webp",
+      "bytes": 104348
+    },
+    {
+      "src": "assets/pages/page-112.webp",
+      "bytes": 99582
+    },
+    {
+      "src": "assets/pages/page-113.webp",
+      "bytes": 45340
+    },
+    {
+      "src": "assets/pages/page-114.webp",
+      "bytes": 86582
+    },
+    {
+      "src": "assets/pages/page-115.webp",
+      "bytes": 100992
+    },
+    {
+      "src": "assets/pages/page-116.webp",
+      "bytes": 89004
+    },
+    {
+      "src": "assets/pages/page-117.webp",
+      "bytes": 84386
+    },
+    {
+      "src": "assets/pages/page-118.webp",
+      "bytes": 58038
+    },
+    {
+      "src": "assets/pages/page-119.webp",
+      "bytes": 89794
+    },
+    {
+      "src": "assets/pages/page-120.webp",
+      "bytes": 112308
+    },
+    {
+      "src": "assets/pages/page-121.webp",
+      "bytes": 98352
+    },
+    {
+      "src": "assets/pages/page-122.webp",
+      "bytes": 65790
+    },
+    {
+      "src": "assets/pages/page-123.webp",
+      "bytes": 86612
+    },
+    {
+      "src": "assets/pages/page-124.webp",
+      "bytes": 91698
+    },
+    {
+      "src": "assets/pages/page-125.webp",
+      "bytes": 88874
+    },
+    {
+      "src": "assets/pages/page-126.webp",
+      "bytes": 92314
+    },
+    {
+      "src": "assets/pages/page-127.webp",
+      "bytes": 40884
+    },
+    {
+      "src": "assets/pages/page-128.webp",
+      "bytes": 74604
+    },
+    {
+      "src": "assets/pages/page-129.webp",
+      "bytes": 89764
+    },
+    {
+      "src": "assets/pages/page-130.webp",
+      "bytes": 89484
+    },
+    {
+      "src": "assets/pages/page-131.webp",
+      "bytes": 80470
+    },
+    {
+      "src": "assets/pages/page-132.webp",
+      "bytes": 87912
+    },
+    {
+      "src": "assets/pages/page-133.webp",
+      "bytes": 100274
+    },
+    {
+      "src": "assets/pages/page-134.webp",
+      "bytes": 96098
+    },
+    {
+      "src": "assets/pages/page-135.webp",
+      "bytes": 75950
+    },
+    {
+      "src": "assets/pages/page-136.webp",
+      "bytes": 102736
+    },
+    {
+      "src": "assets/pages/page-137.webp",
+      "bytes": 90498
+    },
+    {
+      "src": "assets/pages/page-138.webp",
+      "bytes": 108510
+    },
+    {
+      "src": "assets/pages/page-139.webp",
+      "bytes": 48180
+    },
+    {
+      "src": "assets/pages/page-140.webp",
+      "bytes": 92138
+    },
+    {
+      "src": "assets/pages/page-141.webp",
+      "bytes": 119772
+    },
+    {
+      "src": "assets/pages/page-142.webp",
+      "bytes": 102994
+    },
+    {
+      "src": "assets/pages/page-143.webp",
+      "bytes": 68732
+    },
+    {
+      "src": "assets/pages/page-144.webp",
+      "bytes": 95682
+    },
+    {
+      "src": "assets/pages/page-145.webp",
+      "bytes": 103302
+    },
+    {
+      "src": "assets/pages/page-146.webp",
+      "bytes": 87628
+    },
+    {
+      "src": "assets/pages/page-147.webp",
+      "bytes": 56302
+    },
+    {
+      "src": "assets/pages/page-148.webp",
+      "bytes": 71372
+    },
+    {
+      "src": "assets/pages/page-149.webp",
+      "bytes": 53136
+    },
+    {
+      "src": "assets/pages/page-150.webp",
+      "bytes": 39212
+    },
+    {
+      "src": "assets/pages/page-151.webp",
+      "bytes": 99084
+    },
+    {
+      "src": "assets/pages/page-152.webp",
+      "bytes": 83802
+    },
+    {
+      "src": "assets/pages/page-153.webp",
+      "bytes": 88040
+    },
+    {
+      "src": "assets/pages/page-154.webp",
+      "bytes": 97508
+    },
+    {
+      "src": "assets/pages/page-155.webp",
+      "bytes": 76340
+    },
+    {
+      "src": "assets/pages/page-156.webp",
+      "bytes": 76552
+    },
+    {
+      "src": "assets/pages/page-157.webp",
+      "bytes": 86382
+    },
+    {
+      "src": "assets/pages/page-158.webp",
+      "bytes": 77978
+    },
+    {
+      "src": "assets/pages/page-159.webp",
+      "bytes": 98784
+    },
+    {
+      "src": "assets/pages/page-160.webp",
+      "bytes": 59768
+    },
+    {
+      "src": "assets/pages/page-161.webp",
+      "bytes": 39518
+    },
+    {
+      "src": "assets/pages/page-162.webp",
+      "bytes": 87490
+    },
+    {
+      "src": "assets/pages/page-163.webp",
+      "bytes": 93464
+    },
+    {
+      "src": "assets/pages/page-164.webp",
+      "bytes": 75082
+    },
+    {
+      "src": "assets/pages/page-165.webp",
+      "bytes": 95818
+    },
+    {
+      "src": "assets/pages/page-166.webp",
+      "bytes": 80160
+    },
+    {
+      "src": "assets/pages/page-167.webp",
+      "bytes": 85032
+    },
+    {
+      "src": "assets/pages/page-168.webp",
+      "bytes": 103270
+    },
+    {
+      "src": "assets/pages/page-169.webp",
+      "bytes": 87422
+    },
+    {
+      "src": "assets/pages/page-170.webp",
+      "bytes": 69518
+    },
+    {
+      "src": "assets/pages/page-171.webp",
+      "bytes": 96964
+    },
+    {
+      "src": "assets/pages/page-172.webp",
+      "bytes": 78180
+    },
+    {
+      "src": "assets/pages/page-173.webp",
+      "bytes": 85028
+    },
+    {
+      "src": "assets/pages/page-174.webp",
+      "bytes": 85462
+    },
+    {
+      "src": "assets/pages/page-175.webp",
+      "bytes": 83870
+    },
+    {
+      "src": "assets/pages/page-176.webp",
+      "bytes": 85774
+    },
+    {
+      "src": "assets/pages/page-177.webp",
+      "bytes": 93784
+    },
+    {
+      "src": "assets/pages/page-178.webp",
+      "bytes": 87116
+    },
+    {
+      "src": "assets/pages/page-179.webp",
+      "bytes": 85380
+    },
+    {
+      "src": "assets/pages/page-180.webp",
+      "bytes": 78204
+    },
+    {
+      "src": "assets/pages/page-181.webp",
+      "bytes": 85772
+    },
+    {
+      "src": "assets/pages/page-182.webp",
+      "bytes": 99116
+    },
+    {
+      "src": "assets/pages/page-183.webp",
+      "bytes": 90704
+    },
+    {
+      "src": "assets/pages/page-184.webp",
+      "bytes": 100216
+    },
+    {
+      "src": "assets/pages/page-185.webp",
+      "bytes": 102384
+    },
+    {
+      "src": "assets/pages/page-186.webp",
+      "bytes": 106874
+    },
+    {
+      "src": "assets/pages/page-187.webp",
+      "bytes": 98086
+    },
+    {
+      "src": "assets/pages/page-188.webp",
+      "bytes": 94942
+    },
+    {
+      "src": "assets/pages/page-189.webp",
+      "bytes": 91714
+    },
+    {
+      "src": "assets/pages/page-190.webp",
+      "bytes": 105844
+    },
+    {
+      "src": "assets/pages/page-191.webp",
+      "bytes": 95904
+    },
+    {
+      "src": "assets/pages/page-192.webp",
+      "bytes": 98162
+    },
+    {
+      "src": "assets/pages/page-193.webp",
+      "bytes": 84376
+    },
+    {
+      "src": "assets/pages/page-194.webp",
+      "bytes": 87682
+    },
+    {
+      "src": "assets/pages/page-195.webp",
+      "bytes": 97412
+    },
+    {
+      "src": "assets/pages/page-196.webp",
+      "bytes": 74054
+    },
+    {
+      "src": "assets/pages/page-197.webp",
+      "bytes": 58060
+    },
+    {
+      "src": "assets/pages/page-198.webp",
+      "bytes": 75996
+    },
+    {
+      "src": "assets/pages/page-199.webp",
+      "bytes": 72980
+    },
+    {
+      "src": "assets/pages/page-200.webp",
+      "bytes": 61526
+    },
+    {
+      "src": "assets/pages/page-201.webp",
+      "bytes": 69096
+    },
+    {
+      "src": "assets/pages/page-202.webp",
+      "bytes": 67248
+    },
+    {
+      "src": "assets/pages/page-203.webp",
+      "bytes": 81228
+    },
+    {
+      "src": "assets/pages/page-204.webp",
+      "bytes": 74330
+    },
+    {
+      "src": "assets/pages/page-205.webp",
+      "bytes": 69704
+    },
+    {
+      "src": "assets/pages/page-206.webp",
+      "bytes": 68888
+    },
+    {
+      "src": "assets/pages/page-207.webp",
+      "bytes": 65762
+    },
+    {
+      "src": "assets/pages/page-208.webp",
+      "bytes": 63754
+    },
+    {
+      "src": "assets/pages/page-209.webp",
+      "bytes": 77186
+    },
+    {
+      "src": "assets/pages/page-210.webp",
+      "bytes": 78266
+    },
+    {
+      "src": "assets/pages/page-211.webp",
+      "bytes": 61782
+    },
+    {
+      "src": "assets/pages/page-212.webp",
+      "bytes": 65880
+    },
+    {
+      "src": "assets/pages/page-213.webp",
+      "bytes": 77240
+    },
+    {
+      "src": "assets/pages/page-214.webp",
+      "bytes": 92450
+    },
+    {
+      "src": "assets/pages/page-215.webp",
+      "bytes": 113000
+    },
+    {
+      "src": "assets/pages/page-216.webp",
+      "bytes": 109508
+    },
+    {
+      "src": "assets/pages/page-217.webp",
+      "bytes": 126274
+    },
+    {
+      "src": "assets/pages/page-218.webp",
+      "bytes": 101404
+    },
+    {
+      "src": "assets/pages/page-219.webp",
+      "bytes": 136208
+    },
+    {
+      "src": "assets/pages/page-220.webp",
+      "bytes": 115902
+    },
+    {
+      "src": "assets/pages/page-221.webp",
+      "bytes": 101388
+    },
+    {
+      "src": "assets/pages/page-222.webp",
+      "bytes": 102982
+    },
+    {
+      "src": "assets/pages/page-223.webp",
+      "bytes": 117454
+    },
+    {
+      "src": "assets/pages/page-224.webp",
+      "bytes": 97898
+    },
+    {
+      "src": "assets/pages/page-225.webp",
+      "bytes": 118512
+    },
+    {
+      "src": "assets/pages/page-226.webp",
+      "bytes": 72580
+    },
+    {
+      "src": "assets/pages/page-227.webp",
+      "bytes": 79858
+    },
+    {
+      "src": "assets/pages/page-228.webp",
+      "bytes": 34430
+    },
+    {
+      "src": "assets/pages/page-229.webp",
+      "bytes": 110630
+    },
+    {
+      "src": "assets/pages/page-230.webp",
+      "bytes": 61646
+    },
+    {
+      "src": "assets/pages/page-231.webp",
+      "bytes": 52806
+    },
+    {
+      "src": "assets/pages/page-232.webp",
+      "bytes": 75518
+    },
+    {
+      "src": "assets/pages/page-233.webp",
+      "bytes": 50670
+    },
+    {
+      "src": "assets/pages/page-234.webp",
+      "bytes": 64082
+    },
+    {
+      "src": "assets/pages/page-235.webp",
+      "bytes": 63260
+    },
+    {
+      "src": "assets/pages/page-236.webp",
+      "bytes": 53234
+    },
+    {
+      "src": "assets/pages/page-237.webp",
+      "bytes": 70306
+    },
+    {
+      "src": "assets/pages/page-238.webp",
+      "bytes": 43270
+    },
+    {
+      "src": "assets/pages/page-239.webp",
+      "bytes": 66120
+    },
+    {
+      "src": "assets/pages/page-240.webp",
+      "bytes": 87054
+    },
+    {
+      "src": "assets/pages/page-241.webp",
+      "bytes": 120804
+    },
+    {
+      "src": "assets/pages/page-242.webp",
+      "bytes": 83928
+    },
+    {
+      "src": "assets/pages/page-243.webp",
+      "bytes": 70738
+    },
+    {
+      "src": "assets/pages/page-244.webp",
+      "bytes": 81254
+    },
+    {
+      "src": "assets/pages/page-245.webp",
+      "bytes": 38786
+    },
+    {
+      "src": "assets/pages/page-246.webp",
+      "bytes": 123414
+    },
+    {
+      "src": "assets/pages/page-247.webp",
+      "bytes": 123858
+    },
+    {
+      "src": "assets/pages/page-248.webp",
+      "bytes": 82316
+    }
+  ]
+}
